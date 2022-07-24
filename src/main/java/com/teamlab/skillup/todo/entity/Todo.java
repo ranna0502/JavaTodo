@@ -1,5 +1,6 @@
 package com.teamlab.skillup.todo.entity;
 
+import com.teamlab.skillup.todo.form.TodoForm;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -32,4 +33,12 @@ public class Todo {
   // それぞれのカラムに現在日付を自動設定してくれる
   @CreationTimestamp private LocalDateTime createTime;
   @UpdateTimestamp private LocalDateTime updateTime;
+
+  public static Todo of(TodoForm todoForm) {
+    Todo todo = new Todo();
+    todo.setTitle(todoForm.getTitle());
+    todo.setDeadline(todoForm.getDeadline());
+
+    return todo;
+  }
 }

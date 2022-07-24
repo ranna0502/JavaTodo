@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class TodoController {
 
   private final TodoService todoService;
+
   //  JavaDoc
   /**
    * トップ画面を表示
@@ -33,11 +34,9 @@ public class TodoController {
   /**
    * TODO登録処理
    *
-   * @param todoForm　入力値
-   * @retuen 画面表示用URL
+   * @param todoForm 入力値
+   * @return 画面表示用URL
    */
-  //  このメソッドがHTTPのPostメソッドで呼び出されることを示すアノテーション
-  //  /register http://localhost:8080/registerというURLで動作する
   @PostMapping("/register")
   public String register(TodoForm todoForm) {
     todoService.saveTodo(todoForm);
